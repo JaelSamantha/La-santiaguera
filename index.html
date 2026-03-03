@@ -11,10 +11,11 @@
         :root{--primary:#2c3e50;--secondary:#e74c3c;--accent:#3498db;--gold:#f39c12;--light:#ecf0f1;--dark:#1a252f;--success:#27ae60}
         body{font-family:'Poppins',sans-serif;background:#f8f9fa;color:#333;overflow-x:hidden}
         .container{max-width:1400px;margin:0 auto;padding:0 20px}
+        
+        /* HEADER & NAV */
         .top-bar{background:var(--dark);color:#fff;padding:8px 0;font-size:13px}
         .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
         .top-bar a{color:#fff;text-decoration:none;margin-left:20px;transition:.3s}
-        .top-bar a:hover{color:var(--gold)}
         header{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.1);position:sticky;top:0;z-index:1000}
         .header-main{padding:15px 0}
         .header-main .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -23,13 +24,10 @@
         .logo span{color:var(--secondary)}
         .search-container{flex:1;max-width:500px;position:relative}
         .search-box{display:flex;border:2px solid var(--light);border-radius:50px;overflow:hidden;transition:.3s}
-        .search-box:focus-within{border-color:var(--accent);box-shadow:0 0 15px rgba(52,152,219,.2)}
         .search-box input{flex:1;padding:12px 20px;border:none;font-size:15px;outline:none;min-width:150px}
         .search-box button{padding:12px 25px;background:var(--secondary);color:#fff;border:none;cursor:pointer;transition:.3s}
-        .search-box button:hover{background:#c0392b}
         .header-actions{display:flex;align-items:center;gap:20px}
         .header-action{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--primary);transition:.3s}
-        .header-action:hover{color:var(--secondary)}
         .header-action i{font-size:22px;margin-bottom:3px}
         .header-action span{font-size:11px;font-weight:500}
         nav{background:var(--primary)}
@@ -38,21 +36,19 @@
         .nav-menu>li>a{display:flex;align-items:center;gap:8px;padding:15px 18px;color:#fff;text-decoration:none;font-weight:500;transition:.3s;font-size:14px}
         .nav-menu>li:hover>a{background:rgba(255,255,255,.1)}
         .mobile-menu-btn{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:15px}
+
+        /* FILTER BAR */
         .filter-bar{background:#fff;padding:15px 0;border-bottom:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.05)}
         .filter-bar .container{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
         .filter-group{display:flex;align-items:center;gap:10px}
         .filter-group label{font-weight:600;color:var(--primary);font-size:14px;white-space:nowrap}
-        .filter-select{padding:10px 15px;border:1px solid #ddd;border-radius:8px;font-family:inherit;cursor:pointer;background:#fff;min-width:150px}
-        .filter-select:focus{border-color:var(--accent);outline:none}
         .color-filter{display:flex;gap:5px}
         .color-dot{width:25px;height:25px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:.3s}
         .color-dot:hover,.color-dot.active{border-color:var(--primary);transform:scale(1.1)}
-        .btn-apply-filter{padding:10px 20px;background:var(--secondary);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:.3s}
-        .btn-apply-filter:hover{background:#c0392b}
         .btn-clear-filter{padding:10px 20px;background:var(--light);color:var(--primary);border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:.3s}
-        .btn-clear-filter:hover{background:#ddd}
         .results-info{margin-left:auto;color:#777;font-size:14px}
-        .results-info strong{color:var(--primary)}
+
+        /* HERO */
         .hero-section{position:relative;overflow:hidden}
         .hero-slider{position:relative;height:450px}
         .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:.8s}
@@ -75,25 +71,14 @@
         .slider-controls{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:20}
         .slider-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.3s}
         .slider-dot.active{background:#fff;transform:scale(1.3)}
-        .slider-arrows{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;padding:0 15px;transform:translateY(-50%);z-index:20}
-        .slider-arrow{width:45px;height:45px;background:rgba(255,255,255,.2);border:none;border-radius:50%;color:#fff;font-size:18px;cursor:pointer;transition:.3s}
-        .slider-arrow:hover{background:var(--secondary)}
-        .section-header{text-align:center;margin-bottom:40px}
-        .section-header h2{font-size:clamp(24px,4vw,32px);color:var(--primary);margin-bottom:10px}
-        .section-header p{color:#777;font-size:16px}
-        .section-header .line{width:60px;height:4px;background:var(--secondary);margin:15px auto 0;border-radius:2px}
-        .categories-section{padding:50px 0}
-        .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-        .category-card{background:#fff;border-radius:15px;overflow:hidden;text-decoration:none;transition:.3s;box-shadow:0 5px 15px rgba(0,0,0,.08)}
-        .category-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
-        .category-image{height:150px;overflow:hidden}
-        .category-image img{width:100%;height:100%;object-fit:cover;transition:.3s}
-        .category-card:hover .category-image img{transform:scale(1.1)}
-        .category-info{padding:15px;text-align:center}
-        .category-info h3{color:var(--primary);font-size:16px;margin-bottom:5px}
-        .category-info span{color:#999;font-size:13px}
-        .products-section{padding:50px 0;background:#fff}
+
+        /* CATEGORY BLOCKS */
+        .category-wrapper{margin-bottom:60px;padding-top:40px}
+        .cat-section-title{text-align:center;font-size:32px;color:var(--primary);margin-bottom:30px;text-transform:uppercase;letter-spacing:1px;position:relative;display:inline-block;left:50%;transform:translateX(-50%)}
+        .cat-section-title::after{content:'';display:block;width:60px;height:4px;background:var(--secondary);margin:10px auto 0;border-radius:2px}
         .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:25px}
+        
+        /* PRODUCTS */
         .product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s;position:relative}
         .product-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
         .product-badge{position:absolute;top:10px;left:10px;padding:5px 10px;border-radius:15px;font-size:11px;font-weight:600;z-index:5}
@@ -115,63 +100,37 @@
         .product-rating i{color:var(--gold);font-size:12px}
         .product-colors{display:flex;gap:5px;margin-top:10px}
         .product-color{width:18px;height:18px;border-radius:50%;border:2px solid #ddd}
-        .pagination{display:flex;justify-content:center;gap:10px;margin-top:40px;flex-wrap:wrap}
-        .page-btn{width:40px;height:40px;border:1px solid #ddd;background:#fff;border-radius:8px;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center}
-        .page-btn:hover,.page-btn.active{background:var(--secondary);color:#fff;border-color:var(--secondary)}
-        .testimonials-section{padding:60px 0;background:var(--light)}
-        .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
-        .testimonial-card{background:#fff;padding:30px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
-        .testimonial-stars{color:var(--gold);margin-bottom:15px}
-        .testimonial-text{color:#555;line-height:1.7;margin-bottom:20px;font-style:italic}
-        .testimonial-author{display:flex;align-items:center;gap:12px}
-        .testimonial-author img{width:50px;height:50px;border-radius:50%;object-fit:cover}
-        .author-info h4{color:var(--primary);font-size:15px}
-        .author-info span{color:#999;font-size:13px}
-        .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
-        .modal-overlay.active{display:flex}
-        .modal{background:#fff;border-radius:15px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto}
-        .modal-header{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-        .modal-header h3{color:var(--primary);font-size:20px}
-        .modal-close{width:35px;height:35px;border:none;background:var(--light);border-radius:50%;cursor:pointer;font-size:18px;transition:.3s}
-        .modal-close:hover{background:var(--secondary);color:#fff}
-        .modal-body{padding:25px}
-        .product-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-        .main-image{width:100%;height:350px;border-radius:10px;overflow:hidden}
-        .main-image img{width:100%;height:100%;object-fit:cover}
-        .product-detail-info h2{font-size:24px;color:var(--primary);margin-bottom:10px}
-        .detail-code{background:var(--light);padding:5px 12px;border-radius:20px;font-size:13px;color:var(--primary);display:inline-block;margin-bottom:15px}
-        .product-description{color:#666;line-height:1.7;margin:20px 0}
-        .specs-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-        .spec-item{display:flex;gap:8px;align-items:center;font-size:14px}
-        .spec-item i{color:var(--success)}
+        
+        /* FOOTER & MODALS */
         footer{background:var(--dark);color:#fff;padding:60px 0 30px}
-        .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+        .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px;text-align:center}
         .footer-about p{color:#aaa;line-height:1.7;margin:15px 0 20px}
-        .social-links{display:flex;gap:12px}
+        .social-links{display:flex;gap:12px;justify-content:center}
         .social-links a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:.3s}
         .social-links a:hover{background:var(--secondary)}
-        .footer-links h4{font-size:16px;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--secondary);display:inline-block}
-        .footer-links ul{list-style:none}
-        .footer-links li{margin-bottom:10px}
-        .footer-links a{color:#aaa;text-decoration:none;transition:.3s;font-size:14px}
-        .footer-links a:hover{color:#fff;padding-left:5px}
-        .footer-contact li{display:flex;align-items:flex-start;gap:12px;margin-bottom:15px;color:#aaa;font-size:14px}
-        .footer-contact i{color:var(--secondary);margin-top:3px}
+        .footer-contact li{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:15px;color:#aaa;font-size:14px}
         .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:25px;text-align:center}
-        .footer-bottom p{color:#aaa;font-size:14px}
         .back-to-top{position:fixed;bottom:25px;right:25px;width:45px;height:45px;background:var(--secondary);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;opacity:0;visibility:hidden;transition:.3s;z-index:1000}
         .back-to-top.visible{opacity:1;visibility:visible}
         .whatsapp-btn{position:fixed;bottom:25px;left:25px;width:55px;height:55px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 5px 20px rgba(37,211,102,.4);z-index:1000;transition:.3s}
         .whatsapp-btn:hover{transform:scale(1.1)}
         .loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:flex;align-items:center;justify-content:center;z-index:10000;transition:.5s}
         .loader-overlay.hidden{opacity:0;pointer-events:none}
-        .loader{display:flex;gap:8px}
-        .loader span{width:12px;height:12px;background:var(--secondary);border-radius:50%;animation:bounce .6s infinite alternate}
+        .loader span{width:12px;height:12px;background:var(--secondary);border-radius:50%;animation:bounce .6s infinite alternate;display:inline-block;margin:0 2px}
         .loader span:nth-child(2){animation-delay:.2s;background:var(--accent)}
         .loader span:nth-child(3){animation-delay:.4s;background:var(--gold)}
         @keyframes bounce{to{transform:translateY(-15px)}}
-        @media(max-width:992px){.product-detail-grid{grid-template-columns:1fr}.filter-bar .container{justify-content:flex-start}.results-info{width:100%;margin:10px 0 0}}
-        @media(max-width:768px){.mobile-menu-btn{display:block}.nav-menu{position:fixed;top:0;left:-100%;width:80%;height:100%;background:#fff;flex-direction:column;padding:60px 20px;transition:.3s;z-index:2000;overflow-y:auto}.nav-menu.active{left:0}.nav-menu>li>a{color:var(--primary);border-bottom:1px solid #eee}.hero-slider{height:350px}.filter-group{width:100%}.filter-select{width:100%}.specs-list{grid-template-columns:1fr}}
+        
+        /* Modal Styles */
+        .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
+        .modal-overlay.active{display:flex}
+        .modal{background:#fff;border-radius:15px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto}
+        .modal-header{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+        .modal-close{width:35px;height:35px;border:none;background:var(--light);border-radius:50%;cursor:pointer;font-size:18px}
+        .modal-body{padding:25px}
+        .product-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+        .main-image img{width:100%;height:350px;object-fit:cover;border-radius:10px}
+        @media(max-width:768px){.product-detail-grid{grid-template-columns:1fr}.nav-menu{position:fixed;top:0;left:-100%;width:80%;height:100%;background:#fff;flex-direction:column;padding:60px 20px;transition:.3s;z-index:2000}.nav-menu.active{left:0}.mobile-menu-btn{display:block}.hero-slider{height:300px}}
     </style>
 </head>
 <body>
@@ -180,71 +139,73 @@
     <header>
         <div class="header-main"><div class="container">
             <a href="#" class="logo"><i class="fas fa-home"></i>La <span>Santiaguera</span></a>
-            <div class="search-container"><div class="search-box"><input type="text" placeholder="Buscar por nombre o código..." id="searchInput"><button onclick="filterProducts()"><i class="fas fa-search"></i></button></div></div>
+            <div class="search-container"><div class="search-box"><input type="text" placeholder="Buscar por nombre o descripción..." id="searchInput"><button onclick="filterProducts()"><i class="fas fa-search"></i></button></div></div>
             <div class="header-actions">
-                <a href="#" class="header-action"><i class="far fa-heart"></i><span>Favoritos</span></a>
                 <a href="https://wa.me/5359094266" class="header-action"><i class="fab fa-whatsapp"></i><span>Contactar</span></a>
             </div>
         </div></div>
         <nav><div class="container nav-container">
             <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#" onclick="showCategory('all')"><i class="fas fa-th-large"></i>Todos</a></li>
-                <li><a href="#" onclick="showCategory('sabanas')"><i class="fas fa-bed"></i>Sábanas</a></li>
-                <li><a href="#" onclick="showCategory('cristaleria')"><i class="fas fa-wine-glass-alt"></i>Cristalería</a></li>
-                <li><a href="#" onclick="showCategory('calzado')"><i class="fas fa-shoe-prints"></i>Calzado</a></li>
-                <li><a href="#" onclick="showCategory('varios')"><i class="fas fa-box-open"></i>Varios</a></li>
+                <li><a href="#" onclick="scrollToSection('grid-sabanas')"><i class="fas fa-bed"></i>Sábanas</a></li>
+                <li><a href="#" onclick="scrollToSection('grid-cristaleria')"><i class="fas fa-wine-glass-alt"></i>Cristalería</a></li>
+                <li><a href="#" onclick="scrollToSection('grid-calzado')"><i class="fas fa-shoe-prints"></i>Calzado</a></li>
+                <li><a href="#" onclick="scrollToSection('grid-varios')"><i class="fas fa-box-open"></i>Varios</a></li>
             </ul>
         </div></nav>
     </header>
+    
     <div class="filter-bar"><div class="container">
-        <div class="filter-group"><label><i class="fas fa-layer-group"></i></label><select class="filter-select" id="categoryFilter" onchange="filterProducts()"><option value="all">Todas las categorías</option><option value="sabanas">Sábanas</option><option value="cristaleria">Cristalería</option><option value="calzado">Calzado</option><option value="varios">Varios</option></select></div>
         <div class="filter-group"><label><i class="fas fa-palette"></i></label><div class="color-filter"><span class="color-dot" style="background:#fff;border:1px solid #ddd" data-color="blanco" onclick="selectColor(this)"></span><span class="color-dot" style="background:#000" data-color="negro" onclick="selectColor(this)"></span><span class="color-dot" style="background:#e74c3c" data-color="rojo" onclick="selectColor(this)"></span><span class="color-dot" style="background:#3498db" data-color="azul" onclick="selectColor(this)"></span><span class="color-dot" style="background:#27ae60" data-color="verde" onclick="selectColor(this)"></span><span class="color-dot" style="background:#f39c12" data-color="dorado" onclick="selectColor(this)"></span><span class="color-dot" style="background:#9b59b6" data-color="morado" onclick="selectColor(this)"></span></div></div>
-        <button class="btn-apply-filter" onclick="filterProducts()"><i class="fas fa-filter"></i> Filtrar</button>
-        <button class="btn-clear-filter" onclick="clearFilters()"><i class="fas fa-times"></i> Limpiar</button>
-        <div class="results-info">Mostrando <strong id="resultsCount">0</strong> productos</div>
+        <button class="btn-clear-filter" onclick="clearFilters()"><i class="fas fa-times"></i> Limpiar Filtros</button>
     </div></div>
+
     <section class="hero-section">
         <div class="hero-slider">
-            <div class="hero-slide slide-1 active"><div class="hero-content"><h1>Bienvenidos a La Santiaguera</h1><p>Los mejores productos para tu hogar a los mejores precios</p><a href="#productos" class="btn btn-primary"><i class="fas fa-shopping-bag"></i>Ver Productos</a></div></div>
-            <div class="hero-slide slide-2"><div class="hero-content"><h1>Sábanas de Calidad Premium</h1><p>Comodidad y suavidad para el mejor descanso</p><a href="#" class="btn btn-primary" onclick="showCategory('sabanas')"><i class="fas fa-bed"></i>Ver Sábanas</a></div></div>
-            <div class="hero-slide slide-3"><div class="hero-content"><h1>Calzado Cómodo</h1><p>Prácticas y sandalias para toda la familia</p><a href="#" class="btn btn-primary" onclick="showCategory('calzado')"><i class="fas fa-shoe-prints"></i>Ver Calzado</a></div></div>
-            <div class="hero-slide slide-4"><div class="hero-content"><h1>Productos Varios</h1><p>Todo lo que necesitas para tu hogar y negocio</p><a href="#" class="btn btn-primary" onclick="showCategory('varios')"><i class="fas fa-box-open"></i>Ver Productos</a></div></div>
-            <div class="hero-slide slide-5"><div class="hero-content"><h1>Cristalería Elegante</h1><p>Vasos, jarras y más para tu mesa</p><a href="#" class="btn btn-primary" onclick="showCategory('cristaleria')"><i class="fas fa-wine-glass-alt"></i>Ver Cristalería</a></div></div>
-            <div class="hero-slide slide-6"><div class="hero-content"><h1>Juegos de Sábanas con Funda</h1><p>La mejor calidad para tu descanso</p><a href="#" class="btn btn-primary" onclick="showCategory('sabanas')"><i class="fas fa-bed"></i>Ver Sábanas</a></div></div>
-            <div class="hero-slide slide-7"><div class="hero-content"><h1>Calzado para Toda la Familia</h1><p>Comodidad y estilo a tu alcance</p><a href="#" class="btn btn-primary" onclick="showCategory('calzado')"><i class="fas fa-shoe-prints"></i>Ver Calzado</a></div></div>
-            <div class="hero-slide slide-8"><div class="hero-content"><h1>Variedad de Productos</h1><p>Termos, tazas, posuelos y mucho más</p><a href="#" class="btn btn-primary" onclick="showCategory('varios')"><i class="fas fa-box-open"></i>Ver Varios</a></div></div>
+            <div class="hero-slide slide-1 active"><div class="hero-content"><h1>Bienvenidos a La Santiaguera</h1><p>Todo lo que necesitas para tu hogar</p><a href="#cat-sabanas" class="btn btn-primary"><i class="fas fa-shopping-bag"></i>Ver Productos</a></div></div>
+            <div class="hero-slide slide-2"><div class="hero-content"><h1>Sábanas de Calidad</h1><p>Confort y elegancia</p></div></div>
+            <div class="hero-slide slide-3"><div class="hero-content"><h1>Calzado Cómodo</h1><p>Para toda la familia</p></div></div>
+            <div class="hero-slide slide-4"><div class="hero-content"><h1>Variedad de Productos</h1><p>Equipa tu hogar y negocio</p></div></div>
+            <div class="hero-slide slide-5"><div class="hero-content"><h1>Cristalería Fina</h1><p>Elegancia en tu mesa</p></div></div>
+            <div class="hero-slide slide-6"><div class="hero-content"><h1>Textiles</h1><p>La mejor calidad</p></div></div>
+            <div class="hero-slide slide-7"><div class="hero-content"><h1>Estilo y Moda</h1><p>Calzado actual</p></div></div>
+            <div class="hero-slide slide-8"><div class="hero-content"><h1>Novedades</h1><p>Lo último en llegar</p></div></div>
         </div>
         <div class="slider-arrows"><button class="slider-arrow" id="prevSlide"><i class="fas fa-chevron-left"></i></button><button class="slider-arrow" id="nextSlide"><i class="fas fa-chevron-right"></i></button></div>
         <div class="slider-controls"><span class="slider-dot active" data-slide="0"></span><span class="slider-dot" data-slide="1"></span><span class="slider-dot" data-slide="2"></span><span class="slider-dot" data-slide="3"></span><span class="slider-dot" data-slide="4"></span><span class="slider-dot" data-slide="5"></span><span class="slider-dot" data-slide="6"></span><span class="slider-dot" data-slide="7"></span></div>
     </section>
-    <section class="categories-section"><div class="container">
-        <div class="section-header"><h2>Nuestras Categorías</h2><p>Encuentra todo lo que necesitas</p><div class="line"></div></div>
-        <div class="categories-grid">
-            <a href="#" class="category-card" onclick="showCategory('sabanas')"><div class="category-image"><img src="img/sabanas/SBJ003.jpg" alt="Sábanas"></div><div class="category-info"><h3>Sábanas</h3><span id="count-sabanas">0</span></div></a>
-            <a href="#" class="category-card" onclick="showCategory('cristaleria')"><div class="category-image"><img src="img/cristaleria/CR005.jpg" alt="Cristalería"></div><div class="category-info"><h3>Cristalería</h3><span id="count-cristaleria">0</span></div></a>
-            <a href="#" class="category-card" onclick="showCategory('calzado')"><div class="category-image"><img src="img/calzado/CZ005.jpg" alt="Calzado"></div><div class="category-info"><h3>Calzado</h3><span id="count-calzado">0</span></div></a>
-            <a href="#" class="category-card" onclick="showCategory('varios')"><div class="category-image"><img src="img/varios/VR006.jpg" alt="Varios"></div><div class="category-info"><h3>Varios</h3><span id="count-varios">0</span></div></a>
+
+    <!-- BLOQUES DE CATEGORÍAS (Verticales) -->
+    <div class="container" style="padding-top:40px; padding-bottom:40px;">
+        
+        <section class="category-wrapper" id="cat-sabanas">
+            <h2 class="cat-section-title">Sábanas</h2>
+            <div class="products-grid" id="grid-sabanas"></div>
+        </section>
+
+        <section class="category-wrapper" id="cat-cristaleria">
+            <h2 class="cat-section-title">Cristalería</h2>
+            <div class="products-grid" id="grid-cristaleria"></div>
+        </section>
+
+        <section class="category-wrapper" id="cat-calzado">
+            <h2 class="cat-section-title">Calzado</h2>
+            <div class="products-grid" id="grid-calzado"></div>
+        </section>
+
+        <section class="category-wrapper" id="cat-varios">
+            <h2 class="cat-section-title">Varios</h2>
+            <div class="products-grid" id="grid-varios"></div>
+        </section>
+
+        <div id="no-results" style="display:none; text-align:center; padding:40px; font-size:18px; color:#777;">
+            No se encontraron productos con esos criterios.
         </div>
-    </div></section>
-    <section class="products-section" id="productos"><div class="container">
-        <div class="section-header"><h2>Nuestros Productos</h2><p>Calidad garantizada para tu hogar</p><div class="line"></div></div>
-        <div class="products-grid" id="productsGrid"></div>
-        <div class="pagination" id="pagination"></div>
-    </div></section>
-    <section class="testimonials-section"><div class="container">
-        <div class="section-header"><h2>Clientes Satisfechos</h2><p>Lo que dicen de nosotros</p><div class="line"></div></div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Las sábanas son de excelente calidad, muy suaves y cómodas. Definitivamente volveré a comprar."</p><div class="testimonial-author"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt=""><div class="author-info"><h4>María García</h4><span>Cliente</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"Los vasos de cristal llegaron perfectamente. Excelente atención al cliente."</p><div class="testimonial-author"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt=""><div class="author-info"><h4>Carlos Rodríguez</h4><span>Cliente</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="testimonial-text">"Las prácticas son muy cómodas, las uso todos los días. Buenos precios."</p><div class="testimonial-author"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt=""><div class="author-info"><h4>Ana Martínez</h4><span>Cliente</span></div></div></div>
-        </div>
-    </div></section>
+    </div>
+
     <footer><div class="container">
         <div class="footer-grid">
-            <div class="footer-about"><a href="#" class="logo" style="color:#fff"><i class="fas fa-home"></i>La <span>Santiaguera</span></a><p>Lo que tu hogar y negocio necesitan a precios asequibles y a tu alcance.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://wa.me/5359094266"><i class="fab fa-whatsapp"></i></a></div></div>
-            <div class="footer-links"><h4>Categorías</h4><ul><li><a href="#" onclick="showCategory('sabanas')">Sábanas</a></li><li><a href="#" onclick="showCategory('cristaleria')">Cristalería</a></li><li><a href="#" onclick="showCategory('calzado')">Calzado</a></li><li><a href="#" onclick="showCategory('varios')">Varios</a></li></ul></div>
-            <div class="footer-links"><h4>Información</h4><ul><li><a href="#">Sobre Nosotros</a></li><li><a href="#">Preguntas Frecuentes</a></li></ul></div>
+            <div class="footer-about"><a href="#" class="logo" style="color:#fff"><i class="fas fa-home"></i>La <span>Santiaguera</span></a><p>Tu tienda de confianza para productos del hogar, incluye lo que tu hogar y negocio necesitan a precios asequibles y a tu alcance.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://wa.me/5359094266"><i class="fab fa-whatsapp"></i></a></div></div>
             <div class="footer-links footer-contact"><h4>Contacto</h4><ul><li><i class="fas fa-map-marker-alt"></i><span>Calzada de San Miguel, #10206, % 2da y 3ra. Rpto San Juan de los Pinos</span></li><li><i class="fas fa-phone"></i><span>+5359094266</span></li></ul></div>
         </div>
         <div class="footer-bottom"><p>© 2024 La Santiaguera. Todos los derechos reservados.</p></div>
@@ -294,6 +255,8 @@ const productos = [
 {codigo:"CR025",nombre:"Tequilero",categoria:"cristaleria",imagen:"img/cristaleria/CR025.jpg",colores:["transparente"],badge:"new",rating:5,descripcion:"Vaso tequilero de alta calidad.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
 // CALZADO
 {codigo:"CZ002",nombre:"Calzado - Modelo 2",categoria:"calzado",imagen:"img/calzado/CZ002.jpg",colores:["azul"],badge:"new",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
+{codigo:"CZ003",nombre:"Calzado - Modelo 3",categoria:"calzado",imagen:"img/calzado/CZ003.jpg",colores:["negro"],badge:"",rating:4,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
+{codigo:"CZ004",nombre:"Calzado - Modelo 4",categoria:"calzado",imagen:"img/calzado/CZ004.jpg",colores:["rojo"],badge:"",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
 {codigo:"CZ005",nombre:"Calzado - Modelo 5",categoria:"calzado",imagen:"img/calzado/CZ005.jpg",colores:["blanco"],badge:"hot",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
 {codigo:"CZ006",nombre:"Calzado - Modelo 6",categoria:"calzado",imagen:"img/calzado/CZ006.jpg",colores:["negro"],badge:"",rating:4,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
 {codigo:"CZ007",nombre:"Calzado - Modelo 7",categoria:"calzado",imagen:"img/calzado/CZ007.jpg",colores:["azul"],badge:"new",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
@@ -321,19 +284,112 @@ const productos = [
 {codigo:"VR027",nombre:"Bolsitos de piel y tela - Modelo 27",categoria:"varios",imagen:"img/varios/VR027.jpg",colores:["blanco"],badge:"",rating:5,descripcion:"Variante de bolsitos de piel y tela.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
 {codigo:"VR028",nombre:"Pinzas de cocina",categoria:"varios",imagen:"img/varios/VR028.jpg",colores:["negro"],badge:"",rating:5,descripcion:"Pinzas de cocina resistentes y prácticas.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]}
 ];
-let currentPage=1;const productsPerPage=12;let filteredProducts=[...productos];let selectedColor=null;
-window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),800);updateCategoryCounts();filterProducts();initSlider();initModals();initBackToTop()});
-function updateCategoryCounts(){['sabanas','cristaleria','calzado','varios'].forEach(cat=>{const c=productos.filter(p=>p.categoria===cat).length;const el=document.getElementById(`count-${cat}`);if(el)el.textContent=`${c} productos`})}
-function filterProducts(){const s=document.getElementById('searchInput').value.toLowerCase();const c=document.getElementById('categoryFilter').value;filteredProducts=productos.filter(p=>{const ms=p.nombre.toLowerCase().includes(s)||p.codigo.toLowerCase().includes(s)||p.descripcion.toLowerCase().includes(s);const mc=c==='all'||p.categoria===c;const ml=!selectedColor||p.colores.includes(selectedColor);return ms&&mc&&ml});currentPage=1;renderProducts()}
-function showCategory(cat){document.getElementById('categoryFilter').value=cat;selectedColor=null;document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));filterProducts();document.getElementById('productos').scrollIntoView({behavior:'smooth'});document.getElementById('navMenu').classList.remove('active')}
-function selectColor(el){document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));if(selectedColor===el.dataset.color){selectedColor=null}else{el.classList.add('active');selectedColor=el.dataset.color}}
-function clearFilters(){document.getElementById('searchInput').value='';document.getElementById('categoryFilter').value='all';selectedColor=null;document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));filterProducts()}
-function renderProducts(){const g=document.getElementById('productsGrid');const s=(currentPage-1)*productsPerPage;const e=s+productsPerPage;const pp=filteredProducts.slice(s,e);document.getElementById('resultsCount').textContent=filteredProducts.length;if(pp.length===0){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px;color:#777"><i class="fas fa-search" style="font-size:60px;color:#ddd;display:block;margin-bottom:20px"></i><h3>No se encontraron productos</h3><p>Intenta con otros filtros</p></div>';document.getElementById('pagination').innerHTML='';return}g.innerHTML=pp.map(p=>`<div class="product-card">${p.badge?`<span class="product-badge badge-${p.badge}">${p.badge==='new'?'Nuevo':p.badge==='sale'?'Oferta':'Popular'}</span>`:''}<span class="product-code">${p.codigo}</span><div class="product-image"><img src="${p.imagen}" alt="${p.nombre}"><div class="product-actions"><button class="action-btn" onclick="openProductModal('${p.codigo}')"><i class="fas fa-eye"></i></button><button class="action-btn" onclick="contactWhatsApp('${p.codigo}','${p.nombre}')"><i class="fab fa-whatsapp"></i></button></div></div><div class="product-info"><span class="product-category">${getCategoryName(p.categoria)}</span><h3 class="product-title">${p.nombre}</h3><div class="product-rating">${getStars(p.rating)}</div><div class="product-colors">${p.colores.map(c=>`<span class="product-color" style="background:${getColorHex(c)}"></span>`).join('')}</div></div></div>`).join('');renderPagination()}
+
+let selectedColor = null;
+
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 800);
+    renderCategorizedProducts();
+    initSlider();
+    initModals();
+    initBackToTop();
+});
+
+// Esta función renderiza los productos en sus bloques correspondientes
+function renderCategorizedProducts(filteredList = productos) {
+    // Limpiar todas las cuadrículas
+    ['sabanas', 'cristaleria', 'calzado', 'varios'].forEach(cat => {
+        const grid = document.getElementById(`grid-${cat}`);
+        if(grid) grid.innerHTML = '';
+        // Ocultar sección completa si no hay productos
+        const wrapper = document.getElementById(`cat-${cat}`);
+        if(wrapper) wrapper.style.display = 'block';
+    });
+
+    let hasResults = false;
+
+    // Llenar cuadrículas
+    filteredList.forEach(p => {
+        const grid = document.getElementById(`grid-${p.categoria}`);
+        if (grid) {
+            grid.innerHTML += createProductCard(p);
+            hasResults = true;
+        }
+    });
+
+    // Manejar mensaje de no resultados
+    document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
+
+    // Ocultar secciones vacías tras el filtrado
+    ['sabanas', 'cristaleria', 'calzado', 'varios'].forEach(cat => {
+        const grid = document.getElementById(`grid-${cat}`);
+        const wrapper = document.getElementById(`cat-${cat}`);
+        if(grid && grid.children.length === 0) {
+            wrapper.style.display = 'none';
+        }
+    });
+}
+
+function createProductCard(p) {
+    return `
+    <div class="product-card">
+        ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badge==='new'?'Nuevo':p.badge==='sale'?'Oferta':'Popular'}</span>` : ''}
+        <span class="product-code">${p.codigo}</span>
+        <div class="product-image">
+            <img src="${p.imagen}" alt="${p.nombre}">
+            <div class="product-actions">
+                <button class="action-btn" onclick="openProductModal('${p.codigo}')"><i class="fas fa-eye"></i></button>
+                <button class="action-btn" onclick="contactWhatsApp('${p.codigo}','${p.nombre}')"><i class="fab fa-whatsapp"></i></button>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="product-category">${getCategoryName(p.categoria)}</span>
+            <h3 class="product-title">${p.nombre}</h3>
+            <div class="product-rating">${getStars(p.rating)}</div>
+            <div class="product-colors">${p.colores.map(c=>`<span class="product-color" style="background:${getColorHex(c)}"></span>`).join('')}</div>
+        </div>
+    </div>`;
+}
+
+function filterProducts() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = productos.filter(p => {
+        const matchSearch = p.nombre.toLowerCase().includes(search) || 
+                            p.codigo.toLowerCase().includes(search) || 
+                            p.descripcion.toLowerCase().includes(search);
+        const matchColor = !selectedColor || p.colores.includes(selectedColor);
+        return matchSearch && matchColor;
+    });
+    renderCategorizedProducts(filtered);
+}
+
+function selectColor(el) {
+    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+    if (selectedColor === el.dataset.color) {
+        selectedColor = null;
+    } else {
+        el.classList.add('active');
+        selectedColor = el.dataset.color;
+    }
+    filterProducts();
+}
+
+function clearFilters() {
+    document.getElementById('searchInput').value = '';
+    selectedColor = null;
+    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+    renderCategorizedProducts(productos);
+}
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+    document.getElementById('navMenu').classList.remove('active');
+}
+
 function getCategoryName(c){return{sabanas:'Sábanas',cristaleria:'Cristalería',calzado:'Calzado',varios:'Varios'}[c]||c}
 function getStars(r){let s='';for(let i=1;i<=5;i++)s+=`<i class="fas fa-star${i<=r?'':' far'}"></i>`;return s}
 function getColorHex(c){return{blanco:'#fff',negro:'#000',rojo:'#e74c3c',azul:'#3498db',verde:'#27ae60',dorado:'#f39c12',morado:'#9b59b6',rosa:'#e91e63',gris:'#95a5a6',transparente:'#ecf0f1'}[c]||'#ccc'}
-function renderPagination(){const t=Math.ceil(filteredProducts.length/productsPerPage);if(t<=1){document.getElementById('pagination').innerHTML='';return}let h='';for(let i=1;i<=t;i++)h+=`<button class="page-btn ${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;document.getElementById('pagination').innerHTML=h}
-function goToPage(p){currentPage=p;renderProducts();document.getElementById('productos').scrollIntoView({behavior:'smooth'})}
+
 function openProductModal(codigo){const p=productos.find(x=>x.codigo===codigo);if(!p)return;document.getElementById('productModalBody').innerHTML=`<div class="product-detail-grid"><div><div class="main-image"><img src="${p.imagen}" alt="${p.nombre}"></div></div><div class="product-detail-info"><h2>${p.nombre}</h2><span class="detail-code"><i class="fas fa-barcode"></i> ${p.codigo}</span><div class="product-rating" style="margin:15px 0">${getStars(p.rating)}</div><p class="product-description">${p.descripcion}</p><h4 style="margin-bottom:15px"><i class="fas fa-list"></i> Especificaciones:</h4><div class="specs-list">${p.especificaciones.map(e=>`<div class="spec-item"><i class="fas fa-check"></i><span>${e}</span></div>`).join('')}</div><div style="margin-top:25px"><h4 style="margin-bottom:10px">Colores:</h4><div class="product-colors" style="gap:10px">${p.colores.map(c=>`<span class="product-color" style="background:${getColorHex(c)};width:30px;height:30px" title="${c}"></span>`).join('')}</div></div><button class="btn btn-primary" style="margin-top:25px;width:100%" onclick="contactWhatsApp('${p.codigo}','${p.nombre}')"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</button></div></div>`;document.getElementById('productModal').classList.add('active')}
 function contactWhatsApp(codigo,nombre){const msg=encodeURIComponent(`Hola! Me interesa:\n\n📦 ${nombre}\n🏷️ Código: ${codigo}\n\n¿Está disponible?`);window.open(`https://wa.me/5359094266?text=${msg}`,'_blank')}
 function closeModal(id){document.getElementById(id).classList.remove('active')}
