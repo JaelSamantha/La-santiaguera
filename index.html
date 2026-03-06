@@ -3,400 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Santiaguera - Tu Tienda de Confianza</title>
+    <title>La Santiaguera</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ESTILO MINIMALISTA "FLAT" */
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#2c3e50;--secondary:#e74c3c;--accent:#3498db;--gold:#f39c12;--light:#ecf0f1;--dark:#1a252f;--success:#27ae60}
-        body{font-family:'Poppins',sans-serif;background:#f8f9fa;color:#333;overflow-x:hidden}
-        .container{max-width:1400px;margin:0 auto;padding:0 20px}
+        :root{--text:#333;--accent:#e74c3c;--bg:#fff;--gray:#f5f5f5}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5}
+        a{text-decoration:none;color:inherit}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
         
-        /* HEADER & NAV */
-        .top-bar{background:var(--dark);color:#fff;padding:8px 0;font-size:13px}
-        .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-        .top-bar a{color:#fff;text-decoration:none;margin-left:20px;transition:.3s}
-        header{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.1);position:sticky;top:0;z-index:1000}
-        .header-main{padding:15px 0}
-        .header-main .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-        .logo{font-size:24px;font-weight:800;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
-        .logo i{color:var(--secondary);font-size:28px}
-        .logo span{color:var(--secondary)}
-        .search-container{flex:1;max-width:500px;position:relative}
-        .search-box{display:flex;border:2px solid var(--light);border-radius:50px;overflow:hidden;transition:.3s}
-        .search-box input{flex:1;padding:12px 20px;border:none;font-size:15px;outline:none;min-width:150px}
-        .search-box button{padding:12px 25px;background:var(--secondary);color:#fff;border:none;cursor:pointer;transition:.3s}
-        .header-actions{display:flex;align-items:center;gap:20px}
-        .header-action{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--primary);transition:.3s}
-        .header-action i{font-size:22px;margin-bottom:3px}
-        .header-action span{font-size:11px;font-weight:500}
-        nav{background:var(--primary)}
-        .nav-container{display:flex;align-items:center}
-        .nav-menu{display:flex;list-style:none;flex:1;flex-wrap:wrap}
-        .nav-menu>li>a{display:flex;align-items:center;gap:8px;padding:15px 18px;color:#fff;text-decoration:none;font-weight:500;transition:.3s;font-size:14px}
-        .nav-menu>li:hover>a{background:rgba(255,255,255,.1)}
-        .mobile-menu-btn{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:15px}
+        /* HEADER LIMPIO */
+        header{background:#fff;position:sticky;top:0;z-index:1000;padding:20px 0;border-bottom:1px solid #eee}
+        .header-grid{display:flex;justify-content:space-between;align-items:center;gap:20px}
+        
+        .logo{font-size:24px;font-weight:700;letter-spacing:-0.5px;color:var(--text)}
+        .logo span{color:var(--accent)}
+        
+        /* BUSCADOR SIMPLE */
+        .search-wrapper{flex:1;max-width:500px;background:var(--gray);border-radius:8px;padding:5px 15px;display:flex}
+        .search-wrapper input{border:none;background:transparent;width:100%;outline:none;padding:8px;font-size:14px}
+        .search-wrapper button{background:none;border:none;color:#888;cursor:pointer}
+        
+        /* NAV SIMPLE */
+        .nav-links{display:flex;gap:25px}
+        .nav-link{font-weight:500;color:#666;font-size:14px;position:relative}
+        .nav-link:hover{color:var(--text)}
+        .mobile-btn{display:none;font-size:20px;background:none;border:none;cursor:pointer}
 
-        /* FILTER BAR */
-        .filter-bar{background:#fff;padding:15px 0;border-bottom:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-        .filter-bar .container{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
-        .filter-group{display:flex;align-items:center;gap:10px}
-        .filter-group label{font-weight:600;color:var(--primary);font-size:14px;white-space:nowrap}
-        .color-filter{display:flex;gap:5px}
-        .color-dot{width:25px;height:25px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:.3s}
-        .color-dot:hover,.color-dot.active{border-color:var(--primary);transform:scale(1.1)}
-        .btn-clear-filter{padding:10px 20px;background:var(--light);color:var(--primary);border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:.3s}
-        .results-info{margin-left:auto;color:#777;font-size:14px}
+        /* FILTROS INTEGRADOS */
+        .filter-container{padding:15px 0;border-bottom:1px solid #eee;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;align-items:center}
+        .color-dots{display:flex;gap:8px}
+        .dot{width:20px;height:20px;border-radius:50%;cursor:pointer;border:1px solid #ddd;transition:transform 0.2s}
+        .dot:hover,.dot.active{transform:scale(1.2);border-color:#333}
+        .reset-btn{font-size:13px;color:#888;background:none;border:none;border-bottom:1px solid #ccc;cursor:pointer}
 
-        /* HERO */
-        .hero-section{position:relative;overflow:hidden}
-        .hero-slider{position:relative;height:450px}
-        .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:.8s}
+        /* HERO SECTION */
+        .hero{height:350px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+        .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1s}
         .hero-slide.active{opacity:1}
-        .hero-slide::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.3) 100%)}
-        .slide-1{background:url('img/cristaleria/CR005.jpg') center/cover}
-        .slide-2{background:url('img/sabanas/SBJ001.jpg') center/cover}
-        .slide-3{background:url('img/calzado/CZ002.jpg') center/cover}
-        .slide-4{background:url('img/varios/VR003.jpg') center/cover}
-        .slide-5{background:url('img/cristaleria/CR018.jpg') center/cover}
-        .slide-6{background:url('img/sabanas/SBJ007.jpg') center/cover}
-        .slide-7{background:url('img/calzado/CZ005.jpg') center/cover}
-        .slide-8{background:url('img/varios/VR006.jpg') center/cover}
-        .hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;z-index:10;width:90%;max-width:800px}
-        .hero-content h1{font-size:clamp(24px,5vw,48px);font-weight:800;margin-bottom:20px;text-shadow:2px 2px 10px rgba(0,0,0,.3)}
-        .hero-content p{font-size:clamp(14px,2vw,18px);margin-bottom:30px;opacity:.9}
-        .btn{padding:15px 35px;border-radius:50px;font-weight:600;text-decoration:none;transition:.3s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;font-size:15px}
-        .btn-primary{background:var(--secondary);color:#fff}
-        .btn-primary:hover{background:#c0392b;transform:translateY(-3px)}
-        .slider-controls{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:20}
-        .slider-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.3s}
-        .slider-dot.active{background:#fff;transform:scale(1.3)}
+        .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.3)}
+        .hero-text{position:relative;z-index:2;color:#fff}
+        .hero-text h1{font-size:40px;font-weight:700;margin-bottom:10px}
+        .hero-text p{font-size:18px;opacity:0.9}
 
-        /* CATEGORY BLOCKS */
-        .category-wrapper{margin-bottom:60px;padding-top:40px}
-        .cat-section-title{text-align:center;font-size:32px;color:var(--primary);margin-bottom:30px;text-transform:uppercase;letter-spacing:1px;position:relative;display:inline-block;left:50%;transform:translateX(-50%)}
-        .cat-section-title::after{content:'';display:block;width:60px;height:4px;background:var(--secondary);margin:10px auto 0;border-radius:2px}
-        .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:25px}
+        /* CATEGORIAS VERTICALES */
+        .category-section{margin-top:60px}
+        .cat-title{font-size:22px;font-weight:600;margin-bottom:25px;padding-left:15px;border-left:4px solid var(--accent)}
         
-        /* PRODUCTS */
-        .product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s;position:relative}
-        .product-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
-        .product-badge{position:absolute;top:10px;left:10px;padding:5px 10px;border-radius:15px;font-size:11px;font-weight:600;z-index:5}
-        .badge-new{background:var(--success);color:#fff}
-        .badge-sale{background:var(--secondary);color:#fff}
-        .badge-hot{background:var(--gold);color:#fff}
-        .product-code{position:absolute;top:10px;right:10px;background:var(--primary);color:#fff;padding:5px 10px;border-radius:15px;font-size:11px;font-weight:600;z-index:5}
-        .product-image{height:220px;overflow:hidden;position:relative}
-        .product-image img{width:100%;height:100%;object-fit:cover;transition:.3s}
-        .product-card:hover .product-image img{transform:scale(1.05)}
-        .product-actions{position:absolute;bottom:-50px;left:0;right:0;display:flex;justify-content:center;gap:10px;padding:15px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);transition:.3s}
-        .product-card:hover .product-actions{bottom:0}
-        .action-btn{width:40px;height:40px;border-radius:50%;background:#fff;border:none;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center}
-        .action-btn:hover{background:var(--secondary);color:#fff}
-        .product-info{padding:15px}
-        .product-category{color:var(--accent);font-size:11px;font-weight:600;text-transform:uppercase}
-        .product-title{font-size:15px;color:var(--primary);margin:8px 0;font-weight:600;line-height:1.4}
-        .product-rating{display:flex;align-items:center;gap:5px;margin-bottom:8px}
-        .product-rating i{color:var(--gold);font-size:12px}
-        .product-colors{display:flex;gap:5px;margin-top:10px}
-        .product-color{width:18px;height:18px;border-radius:50%;border:2px solid #ddd}
+        /* TARJETAS DE PRODUCTO MINIMALISTAS */
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:30px}
+        .card{background:#fff;transition:0.3s;position:relative}
+        .card:hover{transform:translateY(-5px)}
         
-        /* FOOTER & MODALS */
-        footer{background:var(--dark);color:#fff;padding:60px 0 30px}
-        .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px;text-align:center}
-        .footer-about p{color:#aaa;line-height:1.7;margin:15px 0 20px}
-        .social-links{display:flex;gap:12px;justify-content:center}
-        .social-links a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:.3s}
-        .social-links a:hover{background:var(--secondary)}
-        .footer-contact li{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:15px;color:#aaa;font-size:14px}
-        .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:25px;text-align:center}
-        .back-to-top{position:fixed;bottom:25px;right:25px;width:45px;height:45px;background:var(--secondary);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:18px;opacity:0;visibility:hidden;transition:.3s;z-index:1000}
-        .back-to-top.visible{opacity:1;visibility:visible}
-        .whatsapp-btn{position:fixed;bottom:25px;left:25px;width:55px;height:55px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 5px 20px rgba(37,211,102,.4);z-index:1000;transition:.3s}
-        .whatsapp-btn:hover{transform:scale(1.1)}
-        .loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:flex;align-items:center;justify-content:center;z-index:10000;transition:.5s}
-        .loader-overlay.hidden{opacity:0;pointer-events:none}
-        .loader span{width:12px;height:12px;background:var(--secondary);border-radius:50%;animation:bounce .6s infinite alternate;display:inline-block;margin:0 2px}
-        .loader span:nth-child(2){animation-delay:.2s;background:var(--accent)}
-        .loader span:nth-child(3){animation-delay:.4s;background:var(--gold)}
-        @keyframes bounce{to{transform:translateY(-15px)}}
+        .card-img{height:250px;background:#f9f9f9;overflow:hidden;border-radius:12px;position:relative}
+        .card-img img{width:100%;height:100%;object-fit:cover;transition:0.5s}
+        .card:hover .card-img img{transform:scale(1.05)}
         
-        /* Modal Styles */
-        .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
-        .modal-overlay.active{display:flex}
-        .modal{background:#fff;border-radius:15px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto}
-        .modal-header{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-        .modal-close{width:35px;height:35px;border:none;background:var(--light);border-radius:50%;cursor:pointer;font-size:18px}
-        .modal-body{padding:25px}
-        .product-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-        .main-image img{width:100%;height:350px;object-fit:cover;border-radius:10px}
-        @media(max-width:768px){.product-detail-grid{grid-template-columns:1fr}.nav-menu{position:fixed;top:0;left:-100%;width:80%;height:100%;background:#fff;flex-direction:column;padding:60px 20px;transition:.3s;z-index:2000}.nav-menu.active{left:0}.mobile-menu-btn{display:block}.hero-slider{height:300px}}
+        /* CÓDIGO FLOTANTE (Identificador) */
+        .code-tag{position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.95);padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;color:#333;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+        
+        /* BOTON FLOTANTE CARD */
+        .card-btn{position:absolute;bottom:15px;right:15px;width:40px;height:40px;border-radius:50%;background:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.1);opacity:0;transform:translateY(10px);transition:0.3s}
+        .card:hover .card-btn{opacity:1;transform:translateY(0)}
+        .card-btn:hover{background:var(--accent);color:#fff}
+
+        .card-info{padding-top:12px}
+        .card-title{font-size:15px;font-weight:500;color:#333;margin-bottom:4px}
+        .card-cat{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+
+        /* FOOTER */
+        footer{margin-top:80px;background:#f9f9f9;padding:60px 0;text-align:center;border-top:1px solid #eee}
+        .footer-text{max-width:600px;margin:0 auto 20px;color:#666}
+        .footer-address{font-weight:500;margin-bottom:20px;color:#333}
+        .socials{display:flex;justify-content:center;gap:20px;font-size:20px;color:#888}
+        .socials a:hover{color:var(--accent)}
+
+        /* EXTRAS */
+        .whatsapp-float{position:fixed;bottom:25px;right:25px;width:55px;height:55px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 5px 15px rgba(0,0,0,0.2);z-index:999;transition:0.3s}
+        .whatsapp-float:hover{transform:scale(1.1)}
+        
+        /* MODAL */
+        .modal-wrap{position:fixed;inset:0;background:rgba(255,255,255,0.98);z-index:2000;display:none;justify-content:center;align-items:center;padding:20px}
+        .modal-wrap.active{display:flex}
+        .modal-box{background:#fff;max-width:500px;width:100%;border:1px solid #eee;box-shadow:0 20px 50px rgba(0,0,0,0.1);border-radius:15px;padding:30px;position:relative;text-align:center}
+        .close-btn{position:absolute;top:15px;right:15px;background:none;border:none;font-size:24px;cursor:pointer;color:#888}
+        .modal-img{width:100%;height:300px;object-fit:cover;border-radius:10px;margin-bottom:20px}
+
+        @media(max-width:768px){
+            .nav-links{display:none;flex-direction:column;position:fixed;top:70px;left:0;width:100%;background:#fff;padding:20px;box-shadow:0 5px 10px rgba(0,0,0,0.05)}
+            .nav-links.active{display:flex}
+            .mobile-btn{display:block}
+            .hero{height:250px}
+            .hero-text h1{font-size:28px}
+        }
     </style>
 </head>
 <body>
-    <div class="loader-overlay" id="loader"><div class="loader"><span></span><span></span><span></span></div></div>
-    <div class="top-bar"><div class="container"><div><span><i class="fas fa-store"></i> La Santiaguera - Productos para tu hogar</span></div><div><a href="tel:+5359094266"><i class="fas fa-phone"></i> +5359094266</a></div></div></div>
-    <header>
-        <div class="header-main"><div class="container">
-            <a href="#" class="logo"><i class="fas fa-home"></i>La <span>Santiaguera</span></a>
-            <div class="search-container"><div class="search-box"><input type="text" placeholder="Buscar por nombre o descripción..." id="searchInput"><button onclick="filterProducts()"><i class="fas fa-search"></i></button></div></div>
-            <div class="header-actions">
-                <a href="https://wa.me/5359094266" class="header-action"><i class="fab fa-whatsapp"></i><span>Contactar</span></a>
-            </div>
-        </div></div>
-        <nav><div class="container nav-container">
-            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#" onclick="scrollToSection('grid-sabanas')"><i class="fas fa-bed"></i>Sábanas</a></li>
-                <li><a href="#" onclick="scrollToSection('grid-cristaleria')"><i class="fas fa-wine-glass-alt"></i>Cristalería</a></li>
-                <li><a href="#" onclick="scrollToSection('grid-calzado')"><i class="fas fa-shoe-prints"></i>Calzado</a></li>
-                <li><a href="#" onclick="scrollToSection('grid-varios')"><i class="fas fa-box-open"></i>Varios</a></li>
-            </ul>
-        </div></nav>
-    </header>
-    
-    <div class="filter-bar"><div class="container">
-        <div class="filter-group"><label><i class="fas fa-palette"></i></label><div class="color-filter"><span class="color-dot" style="background:#fff;border:1px solid #ddd" data-color="blanco" onclick="selectColor(this)"></span><span class="color-dot" style="background:#000" data-color="negro" onclick="selectColor(this)"></span><span class="color-dot" style="background:#e74c3c" data-color="rojo" onclick="selectColor(this)"></span><span class="color-dot" style="background:#3498db" data-color="azul" onclick="selectColor(this)"></span><span class="color-dot" style="background:#27ae60" data-color="verde" onclick="selectColor(this)"></span><span class="color-dot" style="background:#f39c12" data-color="dorado" onclick="selectColor(this)"></span><span class="color-dot" style="background:#9b59b6" data-color="morado" onclick="selectColor(this)"></span></div></div>
-        <button class="btn-clear-filter" onclick="clearFilters()"><i class="fas fa-times"></i> Limpiar Filtros</button>
-    </div></div>
 
-    <section class="hero-section">
-        <div class="hero-slider">
-            <div class="hero-slide slide-1 active"><div class="hero-content"><h1>Bienvenidos a La Santiaguera</h1><p>Todo lo que necesitas para tu hogar</p><a href="#cat-sabanas" class="btn btn-primary"><i class="fas fa-shopping-bag"></i>Ver Productos</a></div></div>
-            <div class="hero-slide slide-2"><div class="hero-content"><h1>Sábanas de Calidad</h1><p>Confort y elegancia</p></div></div>
-            <div class="hero-slide slide-3"><div class="hero-content"><h1>Calzado Cómodo</h1><p>Para toda la familia</p></div></div>
-            <div class="hero-slide slide-4"><div class="hero-content"><h1>Variedad de Productos</h1><p>Equipa tu hogar y negocio</p></div></div>
-            <div class="hero-slide slide-5"><div class="hero-content"><h1>Cristalería Fina</h1><p>Elegancia en tu mesa</p></div></div>
-            <div class="hero-slide slide-6"><div class="hero-content"><h1>Textiles</h1><p>La mejor calidad</p></div></div>
-            <div class="hero-slide slide-7"><div class="hero-content"><h1>Estilo y Moda</h1><p>Calzado actual</p></div></div>
-            <div class="hero-slide slide-8"><div class="hero-content"><h1>Novedades</h1><p>Lo último en llegar</p></div></div>
+<header>
+    <div class="container header-grid">
+        <a href="#" class="logo">La <span>Santiaguera</span></a>
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Buscar productos...">
+            <button onclick="filterProducts()"><i class="fas fa-search"></i></button>
         </div>
-        <div class="slider-arrows"><button class="slider-arrow" id="prevSlide"><i class="fas fa-chevron-left"></i></button><button class="slider-arrow" id="nextSlide"><i class="fas fa-chevron-right"></i></button></div>
-        <div class="slider-controls"><span class="slider-dot active" data-slide="0"></span><span class="slider-dot" data-slide="1"></span><span class="slider-dot" data-slide="2"></span><span class="slider-dot" data-slide="3"></span><span class="slider-dot" data-slide="4"></span><span class="slider-dot" data-slide="5"></span><span class="slider-dot" data-slide="6"></span><span class="slider-dot" data-slide="7"></span></div>
-    </section>
-
-    <!-- BLOQUES DE CATEGORÍAS (Verticales) -->
-    <div class="container" style="padding-top:40px; padding-bottom:40px;">
-        
-        <section class="category-wrapper" id="cat-sabanas">
-            <h2 class="cat-section-title">Sábanas</h2>
-            <div class="products-grid" id="grid-sabanas"></div>
-        </section>
-
-        <section class="category-wrapper" id="cat-cristaleria">
-            <h2 class="cat-section-title">Cristalería</h2>
-            <div class="products-grid" id="grid-cristaleria"></div>
-        </section>
-
-        <section class="category-wrapper" id="cat-calzado">
-            <h2 class="cat-section-title">Calzado</h2>
-            <div class="products-grid" id="grid-calzado"></div>
-        </section>
-
-        <section class="category-wrapper" id="cat-varios">
-            <h2 class="cat-section-title">Varios</h2>
-            <div class="products-grid" id="grid-varios"></div>
-        </section>
-
-        <div id="no-results" style="display:none; text-align:center; padding:40px; font-size:18px; color:#777;">
-            No se encontraron productos con esos criterios.
+        <button class="mobile-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        <div class="nav-links" id="navMenu">
+            <a href="#" class="nav-link" onclick="scrollToId('sec-sabanas')">Sábanas</a>
+            <a href="#" class="nav-link" onclick="scrollToId('sec-cristaleria')">Cristalería</a>
+            <a href="#" class="nav-link" onclick="scrollToId('sec-calzado')">Calzado</a>
+            <a href="#" class="nav-link" onclick="scrollToId('sec-varios')">Varios</a>
         </div>
     </div>
+</header>
 
-    <footer><div class="container">
-        <div class="footer-grid">
-            <div class="footer-about"><a href="#" class="logo" style="color:#fff"><i class="fas fa-home"></i>La <span>Santiaguera</span></a><p>Tu tienda de confianza para productos del hogar, incluye lo que tu hogar y negocio necesitan a precios asequibles y a tu alcance.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="https://wa.me/5359094266"><i class="fab fa-whatsapp"></i></a></div></div>
-            <div class="footer-links footer-contact"><h4>Contacto</h4><ul><li><i class="fas fa-map-marker-alt"></i><span>Calzada de San Miguel, #10206, % 2da y 3ra. Rpto San Juan de los Pinos</span></li><li><i class="fas fa-phone"></i><span>+5359094266</span></li></ul></div>
+<!-- FILTROS -->
+<div class="filter-container">
+    <span style="font-size:13px;color:#888">Color:</span>
+    <div class="color-dots">
+        <span class="dot" style="background:#fff" onclick="filterColor('blanco',this)"></span>
+        <span class="dot" style="background:#000" onclick="filterColor('negro',this)"></span>
+        <span class="dot" style="background:#e74c3c" onclick="filterColor('rojo',this)"></span>
+        <span class="dot" style="background:#3498db" onclick="filterColor('azul',this)"></span>
+        <span class="dot" style="background:#27ae60" onclick="filterColor('verde',this)"></span>
+        <span class="dot" style="background:#f39c12" onclick="filterColor('dorado',this)"></span>
+        <span class="dot" style="background:#9b59b6" onclick="filterColor('morado',this)"></span>
+        <span class="dot" style="background:#ffc0cb" onclick="filterColor('rosa',this)"></span>
+    </div>
+    <button class="reset-btn" onclick="resetFilters()">Ver todos</button>
+</div>
+
+<!-- HERO BANNER -->
+<div class="hero">
+    <div class="hero-slide active" style="background-image:url('img/cristaleria/CR005.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('img/sabanas/SBJ001.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('img/calzado/CZ005.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('img/varios/VR006.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+        <h1>La Santiaguera</h1>
+        <p>Tu hogar merece lo mejor</p>
+    </div>
+</div>
+
+<div class="container">
+    
+    <!-- SÁBANAS -->
+    <div class="category-section" id="sec-sabanas">
+        <h2 class="cat-title">Sábanas</h2>
+        <div class="grid" id="grid-sabanas"></div>
+    </div>
+
+    <!-- CRISTALERÍA -->
+    <div class="category-section" id="sec-cristaleria">
+        <h2 class="cat-title">Cristalería</h2>
+        <div class="grid" id="grid-cristaleria"></div>
+    </div>
+
+    <!-- CALZADO -->
+    <div class="category-section" id="sec-calzado">
+        <h2 class="cat-title">Calzado</h2>
+        <div class="grid" id="grid-calzado"></div>
+    </div>
+
+    <!-- VARIOS -->
+    <div class="category-section" id="sec-varios">
+        <h2 class="cat-title">Varios</h2>
+        <div class="grid" id="grid-varios"></div>
+    </div>
+
+    <div id="no-results" style="display:none;text-align:center;padding:50px;color:#888">
+        No encontramos productos con esos criterios.
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-text">
+            <h3>La Santiaguera</h3>
+            <p>Tu tienda de confianza para productos del hogar, incluye lo que tu hogar y negocio necesitan a precios asequibles y a tu alcance.</p>
         </div>
-        <div class="footer-bottom"><p>© 2024 La Santiaguera. Todos los derechos reservados.</p></div>
-    </div></footer>
-    <div class="modal-overlay" id="productModal"><div class="modal"><div class="modal-header"><h3>Detalle del Producto</h3><button class="modal-close" onclick="closeModal('productModal')"><i class="fas fa-times"></i></button></div><div class="modal-body" id="productModalBody"></div></div></div>
-    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
-    <a href="https://wa.me/5359094266" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+        <div class="footer-address">
+            <i class="fas fa-map-marker-alt"></i> Calzada de San Miguel, #10206, % 2da y 3ra. Rpto San Juan de los Pinos
+            <br>
+            <i class="fas fa-phone"></i> +5359094266
+        </div>
+        <div class="socials">
+            <a href="https://wa.me/5359094266"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+<!-- MODAL -->
+<div class="modal-wrap" id="productModal">
+    <div class="modal-box">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<a href="https://wa.me/5359094266" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
 <script>
+/* 
+   SISTEMA DE GESTIÓN SIMPLE:
+   1. Para AGOTADO: Cambia activo:true por activo:false
+   2. Para NUEVO: Copia una línea y cambia los datos.
+*/
+
 const productos = [
-// SABANAS
-{codigo:"SBJ001",nombre:"Juego de Sábanas con Funda - Modelo 1",categoria:"sabanas",imagen:"img/sabanas/SBJ001.jpg",colores:["blanco"],badge:"new",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ002",nombre:"Juego de Sábanas con Funda - Modelo 2",categoria:"sabanas",imagen:"img/sabanas/SBJ002.jpg",colores:["azul"],badge:"",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ003",nombre:"Juego de Sábanas con Funda - Modelo 3",categoria:"sabanas",imagen:"img/sabanas/SBJ003.jpg",colores:["rosa"],badge:"",rating:4,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ004",nombre:"Juego de Sábanas con Funda - Modelo 4",categoria:"sabanas",imagen:"img/sabanas/SBJ004.jpg",colores:["blanco"],badge:"sale",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ005",nombre:"Juego de Sábanas con Funda - Modelo 5",categoria:"sabanas",imagen:"img/sabanas/SBJ005.jpg",colores:["gris"],badge:"",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ006",nombre:"Juego de Sábanas con Funda - Modelo 6",categoria:"sabanas",imagen:"img/sabanas/SBJ006.jpg",colores:["azul"],badge:"",rating:4,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ007",nombre:"Juego de Sábanas con Funda - Modelo 7",categoria:"sabanas",imagen:"img/sabanas/SBJ007.jpg",colores:["blanco"],badge:"hot",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ008",nombre:"Juego de Sábanas con Funda - Modelo 8",categoria:"sabanas",imagen:"img/sabanas/SBJ008.jpg",colores:["negro"],badge:"",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ009",nombre:"Juego de Sábanas con Funda - Modelo 9",categoria:"sabanas",imagen:"img/sabanas/SBJ009.jpg",colores:["rosa"],badge:"",rating:4,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ010",nombre:"Juego de Sábanas con Funda - Modelo 10",categoria:"sabanas",imagen:"img/sabanas/SBJ010.jpg",colores:["blanco"],badge:"new",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ011",nombre:"Juego de Sábanas con Funda - Modelo 11",categoria:"sabanas",imagen:"img/sabanas/SBJ011.jpg",colores:["azul"],badge:"",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ012",nombre:"Juego de Sábanas con Funda - Modelo 12",categoria:"sabanas",imagen:"img/sabanas/SBJ012.jpg",colores:["gris"],badge:"",rating:4,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ013",nombre:"Juego de Sábanas con Funda - Modelo 13",categoria:"sabanas",imagen:"img/sabanas/SBJ013.jpg",colores:["blanco"],badge:"sale",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ014",nombre:"Juego de Sábanas con Funda - Modelo 14",categoria:"sabanas",imagen:"img/sabanas/SBJ014.jpg",colores:["rosa"],badge:"",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ015",nombre:"Juego de Sábanas con Funda - Modelo 15",categoria:"sabanas",imagen:"img/sabanas/SBJ015.jpg",colores:["azul"],badge:"",rating:4,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ016",nombre:"Juego de Sábanas con Funda - Modelo 16",categoria:"sabanas",imagen:"img/sabanas/SBJ016.jpg",colores:["blanco"],badge:"hot",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-{codigo:"SBJ017",nombre:"Juego de Sábanas con Funda - Modelo 17",categoria:"sabanas",imagen:"img/sabanas/SBJ017.jpg",colores:["negro"],badge:"",rating:5,descripcion:"Juego de sábanas con funda de alta calidad.",especificaciones:["Incluye: Sábana + Funda","Suave al tacto","Fácil lavado","Colores firmes"]},
-// CRISTALERIA
-{codigo:"CR001",nombre:"Cristalería - Modelo 1",categoria:"cristaleria",imagen:"img/cristaleria/CR001.jpg",colores:["transparente"],badge:"new",rating:5,descripcion:"Cristalería de alta calidad para tu hogar.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR002",nombre:"Cristalería - Modelo 2",categoria:"cristaleria",imagen:"img/cristaleria/CR002.jpg",colores:["transparente"],badge:"",rating:4,descripcion:"Cristalería de alta calidad para tu hogar.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR003",nombre:"Cristalería - Modelo 3",categoria:"cristaleria",imagen:"img/cristaleria/CR003.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Cristalería de alta calidad para tu hogar.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR004",nombre:"Cristalería - Modelo 4",categoria:"cristaleria",imagen:"img/cristaleria/CR004.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Cristalería de alta calidad para tu hogar.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR005",nombre:"Juego de vasos para whisky",categoria:"cristaleria",imagen:"img/cristaleria/CR005.jpg",colores:["transparente"],badge:"hot",rating:5,descripcion:"Elegante juego de vasos diseñados especialmente para degustar whisky.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR006",nombre:"Juego de 6 vasos",categoria:"cristaleria",imagen:"img/cristaleria/CR006.jpg",colores:["transparente"],badge:"",rating:4,descripcion:"Set completo de 6 vasos ideales para uso diario.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR007",nombre:"Platos",categoria:"cristaleria",imagen:"img/cristaleria/CR007.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Platos de cristal elegantes y resistentes. Incluye modelos variados.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR008",nombre:"Platos - Modelo 8",categoria:"cristaleria",imagen:"img/cristaleria/CR008.jpg",colores:["transparente"],badge:"new",rating:5,descripcion:"Platos de cristal elegantes y resistentes.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR010",nombre:"Juegos de vasos",categoria:"cristaleria",imagen:"img/cristaleria/CR010.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Variedad de juegos de vasos para todas las ocasiones.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR012",nombre:"Dispensador de jabón líquido",categoria:"cristaleria",imagen:"img/cristaleria/CR012.jpg",colores:["transparente"],badge:"",rating:4,descripcion:"Elegante dispensador de cristal para jabón líquido.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR014",nombre:"Tequilero",categoria:"cristaleria",imagen:"img/cristaleria/CR014.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Vaso tequilero clásico.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR015",nombre:"Juego de tequilero",categoria:"cristaleria",imagen:"img/cristaleria/CR015.jpg",colores:["transparente"],badge:"hot",rating:4,descripcion:"Set de vasos tequileros para compartir.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR016",nombre:"Juego de 6 vasos de colores",categoria:"cristaleria",imagen:"img/cristaleria/CR016.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Divertido juego de 6 vasos con detalles en colores.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR017",nombre:"Tequilero",categoria:"cristaleria",imagen:"img/cristaleria/CR017.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Vaso tequilero de diseño especial.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR018",nombre:"Juego de jarra con 4 vasos",categoria:"cristaleria",imagen:"img/cristaleria/CR018.jpg",colores:["transparente"],badge:"new",rating:4,descripcion:"Práctico juego que incluye una jarra y 4 vasos a juego.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR019",nombre:"Juego de jarra con vasos",categoria:"cristaleria",imagen:"img/cristaleria/CR019.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Completo set de jarra y vasos para tus bebidas.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR020",nombre:"Cenicero",categoria:"cristaleria",imagen:"img/cristaleria/CR020.jpg",colores:["transparente"],badge:"",rating:5,descripcion:"Cenicero de cristal robusto y elegante.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR022",nombre:"Juego de 4 tazas de leche",categoria:"cristaleria",imagen:"img/cristaleria/CR022.jpg",colores:["transparente"],badge:"hot",rating:5,descripcion:"Hermoso juego de 4 tazas ideales para leche o café.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-{codigo:"CR025",nombre:"Tequilero",categoria:"cristaleria",imagen:"img/cristaleria/CR025.jpg",colores:["transparente"],badge:"new",rating:5,descripcion:"Vaso tequilero de alta calidad.",especificaciones:["Cristal resistente","Diseño elegante","Fácil limpieza"]},
-// CALZADO
-{codigo:"CZ002",nombre:"Calzado - Modelo 2",categoria:"calzado",imagen:"img/calzado/CZ002.jpg",colores:["azul"],badge:"new",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-{codigo:"CZ003",nombre:"Calzado - Modelo 3",categoria:"calzado",imagen:"img/calzado/CZ003.jpg",colores:["negro"],badge:"",rating:4,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-{codigo:"CZ004",nombre:"Calzado - Modelo 4",categoria:"calzado",imagen:"img/calzado/CZ004.jpg",colores:["rojo"],badge:"",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-{codigo:"CZ005",nombre:"Calzado - Modelo 5",categoria:"calzado",imagen:"img/calzado/CZ005.jpg",colores:["blanco"],badge:"hot",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-{codigo:"CZ006",nombre:"Calzado - Modelo 6",categoria:"calzado",imagen:"img/calzado/CZ006.jpg",colores:["negro"],badge:"",rating:4,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-{codigo:"CZ007",nombre:"Calzado - Modelo 7",categoria:"calzado",imagen:"img/calzado/CZ007.jpg",colores:["azul"],badge:"new",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-{codigo:"CZ008",nombre:"Calzado - Modelo 8",categoria:"calzado",imagen:"img/calzado/CZ008.jpg",colores:["rosa"],badge:"",rating:5,descripcion:"Calzado cómodo para uso diario.",especificaciones:["Suela antideslizante","Material suave","Ligero","Cómodo"]},
-// VARIOS
-{codigo:"VR002",nombre:"Sobrecama con fundas",categoria:"varios",imagen:"img/varios/VR002.jpg",colores:["negro"],badge:"new",rating:4,descripcion:"Elegante sobrecama que incluye fundas a juego.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR003",nombre:"Juego de pozuelo trae 7",categoria:"varios",imagen:"img/varios/VR003.jpg",colores:["blanco"],badge:"",rating:5,descripcion:"Set completo de 7 pozuelos de diferentes tamaños.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR004",nombre:"Juego de 3 pozuelos",categoria:"varios",imagen:"img/varios/VR004.jpg",colores:["azul"],badge:"sale",rating:5,descripcion:"Práctico juego de 3 pozuelos para tu cocina.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR005",nombre:"Set de baño 4 piezas",categoria:"varios",imagen:"img/varios/VR005.jpg",colores:["blanco"],badge:"",rating:4,descripcion:"Completo set de accesorios para baño de 4 piezas.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR006",nombre:"Vasos plásticos resistentes al calor",categoria:"varios",imagen:"img/varios/VR006.jpg",colores:["rojo"],badge:"hot",rating:5,descripcion:"Vasos de plástico duradero, ideales para bebidas calientes.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR007",nombre:"Vasos de cerámica",categoria:"varios",imagen:"img/varios/VR007.jpg",colores:["blanco"],badge:"",rating:5,descripcion:"Vasos de cerámica de alta calidad.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR008",nombre:"Pomos de silicona",categoria:"varios",imagen:"img/varios/VR008.jpg",colores:["negro"],badge:"",rating:4,descripcion:"Pomos flexibles de silicona, libres de BPA.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR009",nombre:"Tenis Converse",categoria:"varios",imagen:"img/varios/VR009.jpg",colores:["azul"],badge:"new",rating:5,descripcion:"Clásicos tenis estilo Converse, cómodos y duraderos.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR010",nombre:"Pomos de agua",categoria:"varios",imagen:"img/varios/VR010.jpg",colores:["blanco"],badge:"",rating:5,descripcion:"Pomos de agua reutilizables y ecológicos.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR012",nombre:"Bolsitos de piel y tela",categoria:"varios",imagen:"img/varios/VR012.jpg",colores:["blanco"],badge:"sale",rating:5,descripcion:"Bolsitos combinados de piel y tela. Incluye modelos variados.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR013",nombre:"Termo de café 0.45L",categoria:"varios",imagen:"img/varios/VR013.jpg",colores:["negro"],badge:"",rating:5,descripcion:"Termo compacto de 0.45L para mantener tu café caliente.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR014",nombre:"Hisopo de baño",categoria:"varios",imagen:"img/varios/VR014.jpg",colores:["rosa"],badge:"",rating:4,descripcion:"Hisopo de baño con base, diseño discreto.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR015",nombre:"Termo de café 1L",categoria:"varios",imagen:"img/varios/VR015.jpg",colores:["blanco"],badge:"new",rating:5,descripcion:"Termo de gran capacidad (1L) para café.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR017",nombre:"Especiero giratorio",categoria:"varios",imagen:"img/varios/VR017.jpg",colores:["blanco"],badge:"",rating:4,descripcion:"Práctico especiero giratorio para organizar tus condimentos.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR018",nombre:"Vasos de cerámica",categoria:"varios",imagen:"img/varios/VR018.jpg",colores:["negro"],badge:"",rating:5,descripcion:"Vasos de cerámica con diseño moderno.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR020",nombre:"Juego de 3 pozuelos con su cucharita",categoria:"varios",imagen:"img/varios/VR020.jpg",colores:["blanco"],badge:"",rating:4,descripcion:"Set de 3 pozuelos que incluyen cucharita.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR023",nombre:"Pozuelos cuadrados trae 7",categoria:"varios",imagen:"img/varios/VR023.jpg",colores:["negro"],badge:"",rating:4,descripcion:"Set de 7 pozuelos de forma cuadrada.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR024",nombre:"Pozuelos en forma circular trae 7",categoria:"varios",imagen:"img/varios/VR024.jpg",colores:["dorado"],badge:"hot",rating:5,descripcion:"Set de 7 pozuelos de forma circular.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR026",nombre:"Bolsitos de piel y tela - Modelo 26",categoria:"varios",imagen:"img/varios/VR026.jpg",colores:["verde"],badge:"",rating:4,descripcion:"Variante de bolsitos de piel y tela.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR027",nombre:"Bolsitos de piel y tela - Modelo 27",categoria:"varios",imagen:"img/varios/VR027.jpg",colores:["blanco"],badge:"",rating:5,descripcion:"Variante de bolsitos de piel y tela.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]},
-{codigo:"VR028",nombre:"Pinzas de cocina",categoria:"varios",imagen:"img/varios/VR028.jpg",colores:["negro"],badge:"",rating:5,descripcion:"Pinzas de cocina resistentes y prácticas.",especificaciones:["Alta calidad","Resistente","Diseño moderno"]}
+    // SÁBANAS (SBJ001-SBJ017)
+    {codigo:"SBJ001", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ001.jpg", colores:["blanco"]},
+    {codigo:"SBJ002", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ002.jpg", colores:["azul"]},
+    {codigo:"SBJ003", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ003.jpg", colores:["rosa"]},
+    {codigo:"SBJ004", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ004.jpg", colores:["blanco"]},
+    {codigo:"SBJ005", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ005.jpg", colores:["gris"]},
+    {codigo:"SBJ006", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ006.jpg", colores:["azul"]},
+    {codigo:"SBJ007", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ007.jpg", colores:["blanco"]},
+    {codigo:"SBJ008", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ008.jpg", colores:["negro"]},
+    {codigo:"SBJ009", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ009.jpg", colores:["rosa"]},
+    {codigo:"SBJ010", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ010.jpg", colores:["blanco"]},
+    {codigo:"SBJ011", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ011.jpg", colores:["azul"]},
+    {codigo:"SBJ012", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ012.jpg", colores:["gris"]},
+    {codigo:"SBJ013", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ013.jpg", colores:["blanco"]},
+    {codigo:"SBJ014", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ014.jpg", colores:["rosa"]},
+    {codigo:"SBJ015", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ015.jpg", colores:["azul"]},
+    {codigo:"SBJ016", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ016.jpg", colores:["blanco"]},
+    {codigo:"SBJ017", nombre:"Juego de Sábanas con Funda", activo:true, categoria:"sabanas", imagen:"img/sabanas/SBJ017.jpg", colores:["negro"]},
+
+    // CRISTALERÍA
+    {codigo:"CR001", nombre:"Cristalería", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR001.jpg", colores:["transparente"]},
+    {codigo:"CR002", nombre:"Cristalería", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR002.jpg", colores:["transparente"]},
+    {codigo:"CR003", nombre:"Cristalería", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR003.jpg", colores:["transparente"]},
+    {codigo:"CR004", nombre:"Cristalería", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR004.jpg", colores:["transparente"]},
+    {codigo:"CR005", nombre:"Juego de vasos para whisky", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR005.jpg", colores:["transparente"]},
+    {codigo:"CR006", nombre:"Juego de 6 vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR006.jpg", colores:["transparente"]},
+    {codigo:"CR007", nombre:"Platos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR007.jpg", colores:["transparente"]},
+    {codigo:"CR008", nombre:"Platos (Variante)", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR008.jpg", colores:["transparente"]},
+    {codigo:"CR009", nombre:"Juego de vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR009.jpg", colores:["transparente"]},
+    {codigo:"CR010", nombre:"Juegos de vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR010.jpg", colores:["transparente"]},
+    {codigo:"CR012", nombre:"Dispensador de jabón líquido", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR012.jpg", colores:["transparente"]},
+    {codigo:"CR014", nombre:"Tequilero", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR014.jpg", colores:["transparente"]},
+    {codigo:"CR015", nombre:"Juego de tequilero", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR015.jpg", colores:["transparente"]},
+    {codigo:"CR016", nombre:"Juego de 6 vasos de colores", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR016.jpg", colores:["transparente"]},
+    {codigo:"CR017", nombre:"Tequilero", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR017.jpg", colores:["transparente"]},
+    {codigo:"CR018", nombre:"Juego de jarra con 4 vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR018.jpg", colores:["transparente"]},
+    {codigo:"CR019", nombre:"Juego de jarra con vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR019.jpg", colores:["transparente"]},
+    {codigo:"CR020", nombre:"Cenicero", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR020.jpg", colores:["transparente"]},
+    {codigo:"CR021", nombre:"Juego de vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR021.jpg", colores:["transparente"]},
+    {codigo:"CR022", nombre:"Juego de 4 tazas de leche", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR022.jpg", colores:["transparente"]},
+    {codigo:"CR023", nombre:"Juego de vasos", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR023.jpg", colores:["transparente"]},
+    {codigo:"CR025", nombre:"Tequilero", activo:true, categoria:"cristaleria", imagen:"img/cristaleria/CR025.jpg", colores:["transparente"]},
+
+    // CALZADO
+    {codigo:"CZ002", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ002.jpg", colores:["azul"]},
+    {codigo:"CZ003", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ003.jpg", colores:["negro"]},
+    {codigo:"CZ004", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ004.jpg", colores:["rojo"]},
+    {codigo:"CZ005", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ005.jpg", colores:["blanco"]},
+    {codigo:"CZ006", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ006.jpg", colores:["negro"]},
+    {codigo:"CZ007", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ007.jpg", colores:["azul"]},
+    {codigo:"CZ008", nombre:"Calzado", activo:true, categoria:"calzado", imagen:"img/calzado/CZ008.jpg", colores:["rosa"]},
+
+    // VARIOS (Descripciones específicas)
+    {codigo:"VR002", nombre:"Sobrecama con fundas", activo:true, categoria:"varios", imagen:"img/varios/VR002.jpg", colores:["negro"]},
+    {codigo:"VR003", nombre:"Juego de pozuelo trae 7", activo:true, categoria:"varios", imagen:"img/varios/VR003.jpg", colores:["blanco"]},
+    {codigo:"VR004", nombre:"Juego de 3 pozuelos", activo:true, categoria:"varios", imagen:"img/varios/VR004.jpg", colores:["azul"]},
+    {codigo:"VR005", nombre:"Set de baño 4 piezas", activo:true, categoria:"varios", imagen:"img/varios/VR005.jpg", colores:["blanco"]},
+    {codigo:"VR006", nombre:"Vasos plásticos resistentes al calor", activo:true, categoria:"varios", imagen:"img/varios/VR006.jpg", colores:["rojo"]},
+    {codigo:"VR007", nombre:"Vasos de cerámica", activo:true, categoria:"varios", imagen:"img/varios/VR007.jpg", colores:["blanco"]},
+    {codigo:"VR008", nombre:"Pomos de silicona", activo:true, categoria:"varios", imagen:"img/varios/VR008.jpg", colores:["negro"]},
+    {codigo:"VR009", nombre:"Tenis Converse", activo:true, categoria:"varios", imagen:"img/varios/VR009.jpg", colores:["azul"]},
+    {codigo:"VR010", nombre:"Pomos de agua", activo:true, categoria:"varios", imagen:"img/varios/VR010.jpg", colores:["blanco"]},
+    {codigo:"VR012", nombre:"Bolsitos de piel y tela", activo:true, categoria:"varios", imagen:"img/varios/VR012.jpg", colores:["blanco"]},
+    {codigo:"VR013", nombre:"Termo de cafe 0.45L", activo:true, categoria:"varios", imagen:"img/varios/VR013.jpg", colores:["negro"]},
+    {codigo:"VR014", nombre:"Hisopo de baño", activo:true, categoria:"varios", imagen:"img/varios/VR014.jpg", colores:["rosa"]},
+    {codigo:"VR015", nombre:"Termo de cafe 1L", activo:true, categoria:"varios", imagen:"img/varios/VR015.jpg", colores:["blanco"]},
+    {codigo:"VR017", nombre:"Especiero giratorio", activo:true, categoria:"varios", imagen:"img/varios/VR017.jpg", colores:["blanco"]},
+    {codigo:"VR018", nombre:"Vasos de ceramica", activo:true, categoria:"varios", imagen:"img/varios/VR018.jpg", colores:["negro"]},
+    {codigo:"VR020", nombre:"Juego de 3 pozuelo con su cucharita", activo:true, categoria:"varios", imagen:"img/varios/VR020.jpg", colores:["blanco"]},
+    {codigo:"VR023", nombre:"Pozuelos cuadrados trae 7", activo:true, categoria:"varios", imagen:"img/varios/VR023.jpg", colores:["negro"]},
+    {codigo:"VR024", nombre:"Pozuelos en forma circular trae 7", activo:true, categoria:"varios", imagen:"img/varios/VR024.jpg", colores:["dorado"]},
+    {codigo:"VR026", nombre:"Bolsitos de piel y tela (Variante)", activo:true, categoria:"varios", imagen:"img/varios/VR026.jpg", colores:["verde"]},
+    {codigo:"VR027", nombre:"Bolsitos de piel y tela (Variante)", activo:true, categoria:"varios", imagen:"img/varios/VR027.jpg", colores:["blanco"]},
+    {codigo:"VR028", nombre:"Pinzas de cocina", activo:true, categoria:"varios", imagen:"img/varios/VR028.jpg", colores:["negro"]}
 ];
 
-let selectedColor = null;
+let colorSeleccionado = null;
 
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 800);
-    renderCategorizedProducts();
-    initSlider();
-    initModals();
-    initBackToTop();
-});
-
-// Esta función renderiza los productos en sus bloques correspondientes
-function renderCategorizedProducts(filteredList = productos) {
-    // Limpiar todas las cuadrículas
-    ['sabanas', 'cristaleria', 'calzado', 'varios'].forEach(cat => {
-        const grid = document.getElementById(`grid-${cat}`);
-        if(grid) grid.innerHTML = '';
-        // Ocultar sección completa si no hay productos
-        const wrapper = document.getElementById(`cat-${cat}`);
-        if(wrapper) wrapper.style.display = 'block';
+function renderProducts(lista = productos) {
+    const cats = ['sabanas', 'cristaleria', 'calzado', 'varios'];
+    
+    // Limpiar
+    cats.forEach(c => {
+        document.getElementById(`grid-${c}`).innerHTML = '';
+        document.getElementById(`sec-${c}`).style.display = 'block';
     });
 
-    let hasResults = false;
+    let encontrados = false;
 
-    // Llenar cuadrículas
-    filteredList.forEach(p => {
+    lista.forEach(p => {
+        if (!p.activo) return;
+
         const grid = document.getElementById(`grid-${p.categoria}`);
         if (grid) {
-            grid.innerHTML += createProductCard(p);
-            hasResults = true;
+            grid.innerHTML += `
+            <div class="card">
+                <span class="code-tag">${p.codigo}</span>
+                <div class="card-img">
+                    <img src="${p.imagen}" alt="${p.nombre}">
+                    <button class="card-btn" onclick="openModal('${p.codigo}')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="card-info">
+                    <div class="card-cat">${p.categoria}</div>
+                    <div class="card-title">${p.nombre}</div>
+                </div>
+            </div>`;
+            encontrados = true;
         }
     });
 
-    // Manejar mensaje de no resultados
-    document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
-
-    // Ocultar secciones vacías tras el filtrado
-    ['sabanas', 'cristaleria', 'calzado', 'varios'].forEach(cat => {
-        const grid = document.getElementById(`grid-${cat}`);
-        const wrapper = document.getElementById(`cat-${cat}`);
-        if(grid && grid.children.length === 0) {
-            wrapper.style.display = 'none';
-        }
+    // Ocultar secciones vacías
+    cats.forEach(c => {
+        const grid = document.getElementById(`grid-${c}`);
+        if (grid.children.length === 0) document.getElementById(`sec-${c}`).style.display = 'none';
     });
-}
 
-function createProductCard(p) {
-    return `
-    <div class="product-card">
-        ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badge==='new'?'Nuevo':p.badge==='sale'?'Oferta':'Popular'}</span>` : ''}
-        <span class="product-code">${p.codigo}</span>
-        <div class="product-image">
-            <img src="${p.imagen}" alt="${p.nombre}">
-            <div class="product-actions">
-                <button class="action-btn" onclick="openProductModal('${p.codigo}')"><i class="fas fa-eye"></i></button>
-                <button class="action-btn" onclick="contactWhatsApp('${p.codigo}','${p.nombre}')"><i class="fab fa-whatsapp"></i></button>
-            </div>
-        </div>
-        <div class="product-info">
-            <span class="product-category">${getCategoryName(p.categoria)}</span>
-            <h3 class="product-title">${p.nombre}</h3>
-            <div class="product-rating">${getStars(p.rating)}</div>
-            <div class="product-colors">${p.colores.map(c=>`<span class="product-color" style="background:${getColorHex(c)}"></span>`).join('')}</div>
-        </div>
-    </div>`;
+    document.getElementById('no-results').style.display = encontrados ? 'none' : 'block';
 }
 
 function filterProducts() {
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = productos.filter(p => {
-        const matchSearch = p.nombre.toLowerCase().includes(search) || 
-                            p.codigo.toLowerCase().includes(search) || 
-                            p.descripcion.toLowerCase().includes(search);
-        const matchColor = !selectedColor || p.colores.includes(selectedColor);
-        return matchSearch && matchColor;
+    const busqueda = document.getElementById('searchInput').value.toLowerCase();
+    const filtrados = productos.filter(p => {
+        const coincideTexto = p.nombre.toLowerCase().includes(busqueda) || p.codigo.toLowerCase().includes(busqueda);
+        const coincideColor = colorSeleccionado ? p.colores.includes(colorSeleccionado) : true;
+        return coincideTexto && coincideColor;
     });
-    renderCategorizedProducts(filtered);
+    renderProducts(filtrados);
 }
 
-function selectColor(el) {
-    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
-    if (selectedColor === el.dataset.color) {
-        selectedColor = null;
+function filterColor(color, btn) {
+    document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+    if (colorSeleccionado === color) {
+        colorSeleccionado = null;
     } else {
-        el.classList.add('active');
-        selectedColor = el.dataset.color;
+        colorSeleccionado = color;
+        btn.classList.add('active');
     }
     filterProducts();
 }
 
-function clearFilters() {
+function resetFilters() {
     document.getElementById('searchInput').value = '';
-    selectedColor = null;
-    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
-    renderCategorizedProducts(productos);
+    colorSeleccionado = null;
+    document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+    renderProducts(productos);
 }
 
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+function openModal(codigo) {
+    const p = productos.find(x => x.codigo === codigo);
+    if(!p) return;
+    
+    document.getElementById('modalContent').innerHTML = `
+        <img src="${p.imagen}" class="modal-img">
+        <h2 style="font-size:22px;margin-bottom:10px">${p.nombre}</h2>
+        <div style="background:#f0f0f0;display:inline-block;padding:5px 10px;border-radius:5px;font-weight:600;margin-bottom:20px">CÓDIGO: ${p.codigo}</div>
+        <br>
+        <button onclick="sendWhatsapp('${p.codigo}', '${p.nombre}')" 
+            style="background:#25d366;color:#fff;border:none;padding:12px 30px;border-radius:25px;font-size:16px;cursor:pointer;font-weight:600">
+            <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+        </button>
+    `;
+    document.querySelector('.modal-wrap').classList.add('active');
+}
+
+function closeModal() {
+    document.querySelector('.modal-wrap').classList.remove('active');
+}
+
+function sendWhatsapp(code, name) {
+    window.open(`https://wa.me/5359094266?text=Hola, me interesa el producto: ${name} (Código: ${code})`, '_blank');
+}
+
+function scrollToId(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
     document.getElementById('navMenu').classList.remove('active');
 }
 
-function getCategoryName(c){return{sabanas:'Sábanas',cristaleria:'Cristalería',calzado:'Calzado',varios:'Varios'}[c]||c}
-function getStars(r){let s='';for(let i=1;i<=5;i++)s+=`<i class="fas fa-star${i<=r?'':' far'}"></i>`;return s}
-function getColorHex(c){return{blanco:'#fff',negro:'#000',rojo:'#e74c3c',azul:'#3498db',verde:'#27ae60',dorado:'#f39c12',morado:'#9b59b6',rosa:'#e91e63',gris:'#95a5a6',transparente:'#ecf0f1'}[c]||'#ccc'}
+function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+}
 
-function openProductModal(codigo){const p=productos.find(x=>x.codigo===codigo);if(!p)return;document.getElementById('productModalBody').innerHTML=`<div class="product-detail-grid"><div><div class="main-image"><img src="${p.imagen}" alt="${p.nombre}"></div></div><div class="product-detail-info"><h2>${p.nombre}</h2><span class="detail-code"><i class="fas fa-barcode"></i> ${p.codigo}</span><div class="product-rating" style="margin:15px 0">${getStars(p.rating)}</div><p class="product-description">${p.descripcion}</p><h4 style="margin-bottom:15px"><i class="fas fa-list"></i> Especificaciones:</h4><div class="specs-list">${p.especificaciones.map(e=>`<div class="spec-item"><i class="fas fa-check"></i><span>${e}</span></div>`).join('')}</div><div style="margin-top:25px"><h4 style="margin-bottom:10px">Colores:</h4><div class="product-colors" style="gap:10px">${p.colores.map(c=>`<span class="product-color" style="background:${getColorHex(c)};width:30px;height:30px" title="${c}"></span>`).join('')}</div></div><button class="btn btn-primary" style="margin-top:25px;width:100%" onclick="contactWhatsApp('${p.codigo}','${p.nombre}')"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</button></div></div>`;document.getElementById('productModal').classList.add('active')}
-function contactWhatsApp(codigo,nombre){const msg=encodeURIComponent(`Hola! Me interesa:\n\n📦 ${nombre}\n🏷️ Código: ${codigo}\n\n¿Está disponible?`);window.open(`https://wa.me/5359094266?text=${msg}`,'_blank')}
-function closeModal(id){document.getElementById(id).classList.remove('active')}
-function initSlider(){const sl=document.querySelectorAll('.hero-slide'),dt=document.querySelectorAll('.slider-dot');let c=0,iv;function go(n){sl[c].classList.remove('active');dt[c].classList.remove('active');c=(n+sl.length)%sl.length;sl[c].classList.add('active');dt[c].classList.add('active')}function st(){iv=setInterval(()=>go(c+1),4000)}function sp(){clearInterval(iv)}document.getElementById('nextSlide').onclick=()=>{sp();go(c+1);st()};document.getElementById('prevSlide').onclick=()=>{sp();go(c-1);st()};dt.forEach((d,i)=>d.onclick=()=>{sp();go(i);st()});st()}
-function initModals(){document.querySelectorAll('.modal-overlay').forEach(m=>m.onclick=e=>{if(e.target===m)m.classList.remove('active')});document.getElementById('mobileMenuBtn').onclick=()=>document.getElementById('navMenu').classList.toggle('active')}
-function initBackToTop(){const b=document.getElementById('backToTop');window.onscroll=()=>b.classList.toggle('visible',window.scrollY>400);b.onclick=()=>window.scrollTo({top:0,behavior:'smooth'})}
-document.getElementById('searchInput').addEventListener('keypress',e=>{if(e.key==='Enter')filterProducts()});
+// SLIDER
+let slideIndex = 0;
+function showSlides() {
+    const slides = document.querySelectorAll('.hero-slide');
+    slides.forEach(s => s.classList.remove('active'));
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].classList.add('active');
+    setTimeout(showSlides, 4000); 
+}
+
+window.onload = function() {
+    renderProducts();
+    showSlides();
+};
 </script>
 </body>
 </html>
